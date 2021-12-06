@@ -1,0 +1,110 @@
+F:\Институт\Практика\Integral\Integral\bin\Debug\Integral.exe.config
+F:\Институт\Практика\Integral\Integral\bin\Debug\Integral.exe
+F:\Институт\Практика\Integral\Integral\bin\Debug\Integral.pdb
+F:\Институт\Практика\Integral\Integral\obj\Debug\Integral.csprojResolveAssemblyReference.cache
+F:\Институт\Практика\Integral\Integral\obj\Debug\Integral.mainForm.resources
+F:\Институт\Практика\Integral\Integral\obj\Debug\Integral.Properties.Resources.resources
+F:\Институт\Практика\Integral\Integral\obj\Debug\Integral.csproj.GenerateResource.Cache
+F:\Институт\Практика\Integral\Integral\obj\Debug\Integral.exe
+F:\Институт\Практика\Integral\Integral\obj\Debug\Integral.pdb
+C:\Users\Memes\Desktop\МГТУ\Учебная практика лето 2020\Integral\Integral\bin\Debug\Integral.exe.config
+C:\Users\Memes\Desktop\МГТУ\Учебная практика лето 2020\Integral\Integral\bin\Debug\Integral.exe
+C:\Users\Memes\Desktop\МГТУ\Учебная практика лето 2020\Integral\Integral\bin\Debug\Integral.pdb
+C:\Users\Memes\Desktop\МГТУ\Учебная практика лето 2020\Integral\Integral\obj\Debug\Integral.csprojAssemblyReference.cache
+C:\Users\Memes\Desktop\МГТУ\Учебная практика лето 2020\Integral\Integral\obj\Debug\Integral.mainForm.resources
+C:\Users\Memes\Desktop\МГТУ\Учебная практика лето 2020\Integral\Integral\obj\Debug\Integral.Properties.Resources.resources
+C:\Users\Memes\Desktop\МГТУ\Учебная практика лето 2020\Integral\Integral\obj\Debug\Integral.csproj.GenerateResource.cache
+C:\Users\Memes\Desktop\МГТУ\Учебная практика лето 2020\Integral\Integral\obj\Debug\Integral.csproj.CoreCompileInputs.cache
+C:\Users\Memes\Desktop\МГТУ\Учебная практика лето 2020\Integral\Integral\obj\Debug\Integral.exe
+C:\Users\Memes\Desktop\МГТУ\Учебная практика лето 2020\Integral\Integral\obj\Debug\Integral.pdb
+C:\Users\Memes\Desktop\МГТУ\Учебная практика лето 2020 - копия\Integral\Integral\bin\Debug\Integral.exe.config
+C:\Users\Memes\Desktop\МГТУ\Учебная практика лето 2020 - копия\Integral\Integral\bin\Debug\Integral.exe
+C:\Users\Memes\Desktop\МГТУ\Учебная практика лето 2020 - копия\Integral\Integral\bin\Debug\Integral.pdb
+C:\Users\Memes\Desktop\МГТУ\Учебная практика лето 2020 - копия\Integral\Integral\obj\Debug\Integral.csprojAssemblyReference.cache
+C:\Users\Memes\Desktop\МГТУ\Учебная практика лето 2020 - копия\Integral\Integral\obj\Debug\Integral.mainForm.resources
+C:\Users\Memes\Desktop\МГТУ\Учебная практика лето 2020 - копия\Integral\Integral\obj\Debug\Integral.Properties.Resources.resources
+C:\Users\Memes\Desktop\МГТУ\Учебная практика лето 2020 - копия\Integral\Integral\obj\Debug\Integral.csproj.GenerateResource.cache
+C:\Users\Memes\Desktop\МГТУ\Учебная практика лето 2020 - копия\Integral\Integral\obj\Debug\Integral.csproj.CoreCompileInputs.cache
+C:\Users\Memes\Desktop\МГТУ\Учебная практика лето 2020 - копия\Integral\Integral\obj\Debug\Integral.exe
+C:\Users\Memes\Desktop\МГТУ\Учебная практика лето 2020 - копия\Integral\Integral\obj\Debug\Integral.pdb
+F:\Институт\Integral\Integral\bin\Debug\Integral.exe.config
+F:\Институт\Integral\Integral\bin\Debug\Integral.exe
+F:\Институт\Integral\Integral\bin\Debug\Integral.pdb
+F:\Институт\Integral\Integral\obj\Debug\Integral.csprojResolveAssemblyReference.cache
+F:\Институт\Integral\Integral\obj\Debug\Integral.mainForm.resources
+F:\Институт\Integral\Integral\obj\Debug\Integral.Properties.Resources.resources
+F:\Институт\Integral\Integral\obj\Debug\Integral.csproj.GenerateResource.Cache
+F:\Институт\Integral\Integral\obj\Debug\Integral.exe
+F:\Институт\Integral\Integral\obj\Debug\Integral.pdb
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\Integral\Integral\bin\Debug\Integral.exe.config
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\Integral\Integral\bin\Debug\Integral.exe
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\Integral\Integral\bin\Debug\Integral.pdb
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\Integral\Integral\obj\Debug\Integral.csprojAssemblyReference.cache
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\Integral\Integral\obj\Debug\Integral.mainForm.resources
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\Integral\Integral\obj\Debug\Integral.Properties.Resources.resources
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\Integral\Integral\obj\Debug\Integral.csproj.GenerateResource.cache
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\Integral\Integral\obj\Debug\Integral.csproj.CoreCompileInputs.cache
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\Integral\Integral\obj\Debug\Integral.exe
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\Integral\Integral\obj\Debug\Integral.pdb
+G:\Integral\Integral\bin\Debug\Integral.exe.config
+G:\Integral\Integral\bin\Debug\Integral.exe
+G:\Integral\Integral\bin\Debug\Integral.pdb
+G:\Integral\Integral\obj\Debug\Integral.csprojAssemblyReference.cache
+G:\Integral\Integral\obj\Debug\Integral.mainForm.resources
+G:\Integral\Integral\obj\Debug\Integral.Properties.Resources.resources
+G:\Integral\Integral\obj\Debug\Integral.csproj.GenerateResource.cache
+G:\Integral\Integral\obj\Debug\Integral.csproj.CoreCompileInputs.cache
+G:\Integral\Integral\obj\Debug\Integral.exe
+G:\Integral\Integral\obj\Debug\Integral.pdb
+F:\Integral\Integral\bin\Debug\Integral.exe.config
+F:\Integral\Integral\bin\Debug\Integral.exe
+F:\Integral\Integral\bin\Debug\Integral.pdb
+F:\Integral\Integral\obj\Debug\Integral.csprojAssemblyReference.cache
+F:\Integral\Integral\obj\Debug\Integral.mainForm.resources
+F:\Integral\Integral\obj\Debug\Integral.Properties.Resources.resources
+F:\Integral\Integral\obj\Debug\Integral.csproj.GenerateResource.cache
+F:\Integral\Integral\obj\Debug\Integral.csproj.CoreCompileInputs.cache
+F:\Integral\Integral\obj\Debug\Integral.exe
+F:\Integral\Integral\obj\Debug\Integral.pdb
+C:\Users\saito\Desktop\Integral\Integral\bin\Debug\Integral.exe.config
+C:\Users\saito\Desktop\Integral\Integral\bin\Debug\Integral.exe
+C:\Users\saito\Desktop\Integral\Integral\bin\Debug\Integral.pdb
+C:\Users\saito\Desktop\Integral\Integral\obj\Debug\Integral.csprojResolveAssemblyReference.cache
+C:\Users\saito\Desktop\Integral\Integral\obj\Debug\Integral.mainForm.resources
+C:\Users\saito\Desktop\Integral\Integral\obj\Debug\Integral.Properties.Resources.resources
+C:\Users\saito\Desktop\Integral\Integral\obj\Debug\Integral.csproj.GenerateResource.Cache
+C:\Users\saito\Desktop\Integral\Integral\obj\Debug\Integral.exe
+C:\Users\saito\Desktop\Integral\Integral\obj\Debug\Integral.pdb
+C:\Users\saito\Desktop\Integral\Integral\obj\Debug\Integral.History.resources
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперИсходная версия\Integral\Integral\bin\Debug\Integral.exe.config
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперИсходная версия\Integral\Integral\bin\Debug\Integral.exe
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперИсходная версия\Integral\Integral\bin\Debug\Integral.pdb
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперИсходная версия\Integral\Integral\obj\Debug\Integral.csprojAssemblyReference.cache
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперИсходная версия\Integral\Integral\obj\Debug\Integral.History.resources
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперИсходная версия\Integral\Integral\obj\Debug\Integral.mainForm.resources
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперИсходная версия\Integral\Integral\obj\Debug\Integral.Properties.Resources.resources
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперИсходная версия\Integral\Integral\obj\Debug\Integral.csproj.GenerateResource.cache
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперИсходная версия\Integral\Integral\obj\Debug\Integral.csproj.CoreCompileInputs.cache
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперИсходная версия\Integral\Integral\obj\Debug\Integral.exe
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперИсходная версия\Integral\Integral\obj\Debug\Integral.pdb
+G:\курсовая\Integral\Integral\bin\Debug\Integral.exe.config
+G:\курсовая\Integral\Integral\bin\Debug\Integral.exe
+G:\курсовая\Integral\Integral\bin\Debug\Integral.pdb
+G:\курсовая\Integral\Integral\obj\Debug\Integral.csprojResolveAssemblyReference.cache
+G:\курсовая\Integral\Integral\obj\Debug\Integral.History.resources
+G:\курсовая\Integral\Integral\obj\Debug\Integral.mainForm.resources
+G:\курсовая\Integral\Integral\obj\Debug\Integral.Properties.Resources.resources
+G:\курсовая\Integral\Integral\obj\Debug\Integral.csproj.GenerateResource.Cache
+G:\курсовая\Integral\Integral\obj\Debug\Integral.exe
+G:\курсовая\Integral\Integral\obj\Debug\Integral.pdb
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперМегаИсходная версия\Integral\Integral\bin\Debug\Integral.exe.config
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперМегаИсходная версия\Integral\Integral\bin\Debug\Integral.exe
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперМегаИсходная версия\Integral\Integral\bin\Debug\Integral.pdb
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперМегаИсходная версия\Integral\Integral\obj\Debug\Integral.csprojAssemblyReference.cache
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперМегаИсходная версия\Integral\Integral\obj\Debug\Integral.History.resources
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперМегаИсходная версия\Integral\Integral\obj\Debug\Integral.mainForm.resources
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперМегаИсходная версия\Integral\Integral\obj\Debug\Integral.Properties.Resources.resources
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперМегаИсходная версия\Integral\Integral\obj\Debug\Integral.csproj.GenerateResource.cache
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперМегаИсходная версия\Integral\Integral\obj\Debug\Integral.csproj.CoreCompileInputs.cache
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперМегаИсходная версия\Integral\Integral\obj\Debug\Integral.exe
+C:\Users\Memes\Desktop\МГТУ\Второй курс\ООП\Курсовик\СуперМегаИсходная версия\Integral\Integral\obj\Debug\Integral.pdb

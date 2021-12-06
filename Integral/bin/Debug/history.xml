@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stories>
+  <story>
+    <function>x^2</function>
+    <a>-2</a>
+    <b>2</b>
+	<result>5.33333</result>
+    <method>Формула Симпсона (парабол)</method>
+  </story> 
+<story>
+    <function>1-x^2</function>
+    <a>0</a>
+    <b>2</b>
+	<result>-0,66667</result>
+    <method>Формула Симпсона (парабол)</method>
+  </story>
+<story>
+    <function>sin(x)</function>
+    <a>2</a>
+    <b></b>
+	<result>-0,41614</result>
+    <method>Дифференцирование в точке</method>
+  </story>
+</stories>

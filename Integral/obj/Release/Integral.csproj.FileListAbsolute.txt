@@ -1,0 +1,9 @@
+F:\Институт\1 курс\Integral\Integral\bin\Release\Integral.exe.config
+F:\Институт\1 курс\Integral\Integral\bin\Release\Integral.exe
+F:\Институт\1 курс\Integral\Integral\bin\Release\Integral.pdb
+F:\Институт\1 курс\Integral\Integral\obj\Release\Integral.csprojResolveAssemblyReference.cache
+F:\Институт\1 курс\Integral\Integral\obj\Release\Integral.mainForm.resources
+F:\Институт\1 курс\Integral\Integral\obj\Release\Integral.Properties.Resources.resources
+F:\Институт\1 курс\Integral\Integral\obj\Release\Integral.csproj.GenerateResource.Cache
+F:\Институт\1 курс\Integral\Integral\obj\Release\Integral.exe
+F:\Институт\1 курс\Integral\Integral\obj\Release\Integral.pdb
