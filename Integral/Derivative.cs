@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Integral
 {
@@ -18,8 +14,8 @@ namespace Integral
 
         private double DifferFirst(double x)
         {
-            double Diffresult = 0.0;         
-            Diffresult = (parser.f(x+dx) - parser.f(x)) / (dx);
+            double Diffresult = 0.0;
+            Diffresult = (parser.f(x + dx) - parser.f(x)) / (dx);
             return Diffresult;
         }
 
@@ -48,13 +44,13 @@ namespace Integral
             return result;
         }
 
-        public double FindDiv(double x, double eps)
+        public double FindDerivative(double x, double eps)
         {
             double result = 0.0;
-            double h = getStep(x,eps);
+            double h = getStep(x, eps);
             double a = parser.f(x + h);
             double b = parser.f(x - h);
-            result = (a-b) / (2 * h);
+            result = (a - b) / (2 * h);
             return result;
         }
     }

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -14,14 +8,14 @@ namespace Integral
     public partial class History : Form
     {
         XmlDocument xDoc = new XmlDocument(); //переменная для обращения к xml файлу
-        
+
 
         public History()
         {
             InitializeComponent();
         }
 
-    
+
         public void SetTable(DataTable table)
         {
             dtHistry.DataSource = table;

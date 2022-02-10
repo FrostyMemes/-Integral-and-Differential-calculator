@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -26,7 +19,7 @@ namespace Integral
             dtHistory.Columns.Add("method");
         }
 
-        public void TxtBox (string function)
+        public void TxtBox(string function)
         {
             txtFunction.Text = function;
         }
@@ -48,23 +41,31 @@ namespace Integral
         {
             try
             {
-                if (!bgWork.IsBusy)
-                {
+                  if (!bgWork.IsBusy)
+                  {
 
-                    bgWork.RunWorkerAsync();
-                    pbProgress.Value = 0;
-                    btnGetResult.Text = "Отмена";
-                    groupBox1.Enabled = false;
-                    groupBox2.Enabled = false;
-                }
-                else
-                {
-                    bgWork.WorkerSupportsCancellation = true;
-                    bgWork.CancelAsync();
-                    btnGetResult.Text = "Расчитать";
-                    groupBox1.Enabled = true;
-                    groupBox2.Enabled = true;
-                }
+                      bgWork.RunWorkerAsync();
+                      pbProgress.Value = 0;
+                      btnGetResult.Text = "Отмена";
+                      groupBox1.Enabled = false;
+                      groupBox2.Enabled = false;
+                  }
+                  else
+                  {
+                      bgWork.WorkerSupportsCancellation = true;
+                      bgWork.CancelAsync();
+                      btnGetResult.Text = "Расчитать";
+                      groupBox1.Enabled = true;
+                      groupBox2.Enabled = true;
+                  }
+                  
+               /* txtResult.Text = String.Empty;
+                Parser p = new Parser(txtFunction.Text);
+                for (int i = 0; i != p.polishRecord.Count; i++)
+                    txtResult.Text += p.polishRecord[i].Value + " ";
+                txtResult.Text += "РЕЗУЛЬТАТ: ";
+                txtResult.Text += p.f(Double.Parse(txtA.Text));*/
+
             }
             catch (Exception ex)
             {
@@ -181,14 +182,14 @@ namespace Integral
                 else
                 {
                     Derivative derivative = new Derivative(txtFunction.Text);
-                    result = derivative.FindDiv(aborder, epsilon);
+                    result = derivative.FindDerivative(aborder, epsilon);
                     action = () => dtHistory.Rows.Add(txtFunction.Text, txtA.Text, "", String.Format("{0:F" + CharsAfter + "}", result), "Дифференцирование в точке");
                     Invoke(action);
                 }
 
-                
 
-                
+
+
 
                 action = () => txtResult.Text = String.Format("{0:F" + CharsAfter + "}", result);
                 Invoke(action);

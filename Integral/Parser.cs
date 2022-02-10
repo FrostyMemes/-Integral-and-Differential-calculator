@@ -1,137 +1,110 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Integral
 {
 
     class Parser
     {
-        public string function;
-	
+
         private List<string> Functs = new List<string>() { "sin", "cos", "tan", "cot", "abs", "asin", "acos", "atan", "sqrt", "exp", "log", "ln" }; //Список всех функций
-        private List<string> number = new List<string>() { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ",", ".", "x" }; //Список всех значений, которые принимаются за числа
-        private List<string> MulDiv = new List<string>() { "*", "/" }; //Список знаков высокого приоритета
-        private List<string> AddSub = new List<string>() { "+", "-" }; //Список знаков низкого приоритета
+        private List<string> numbers_values = new List<string>() { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ",", ".", "x" }; //Список всех значений, которые принимаются за числа
 
-        private List<string> tokens = new List<string>(); //Список для сортировки токенов введенной функции
-        private List<string> result = new List<string>(); //Список для содержания комбинации знаков обратой польской нотации введенной функции
+        public List<Token> polishRecord = new List<Token>(); //Список для содержания комбинации знаков обратой польской нотации введенной функции
+        public string Equation { get; }
 
-        public Parser(string Formula)
+        public Parser(string function)
         {
-            this.function = Formula;
-            GetPolishRecord(Formula);
+            Equation = function;
+            GetPolishRecord(function);
         }
 
-       public double f(double x) 
-       {
-            double firstNumber, secondNumber, res;
+        
+
+        public double f(double x)
+        {
+            double firstNumber, secondNumber;
             bool ErrorNaN = false;
-            tokens.Clear();
+            Stack<double> numbers = new Stack<double>();
 
             try
             {
-                for (int i = 0; i < result.Count; i++)
+                foreach (var token in polishRecord)
                 {
-                    if (!MulDiv.Contains(result[i]) && !AddSub.Contains(result[i]) && !Functs.Contains(result[i]) && result[i] != "^")
+                    if (token.Type == 1) 
                     {
-                        if (result[i] == "x")
-                            tokens.Add(x.ToString());
+                        if (token.Value == "x")
+                            numbers.Push(x);
                         else
-                            tokens.Add(result[i]);
+                            numbers.Push(Double.Parse(token.Value));
+
                     }
                     else
                     {
-                        if (Functs.Contains(result[i]))
+                        if (token.Type == 2)
                         {
-                            switch (result[i])
+                            firstNumber = numbers.Pop();
+                            switch (token.Value)
                             {
                                 case "sin":
-                                    firstNumber = Convert.ToDouble(tokens[tokens.Count - 1]);
-                                    res = Math.Sin(firstNumber);
-                                    tokens[tokens.Count - 1] = res.ToString();
+                                    numbers.Push(Math.Sin(firstNumber));
                                     break;
+
                                 case "cos":
-                                    firstNumber = Convert.ToDouble(tokens[tokens.Count - 1]);
-                                    res = Math.Cos(firstNumber);
-                                    tokens[tokens.Count - 1] = res.ToString();
+                                    numbers.Push(Math.Cos(firstNumber));
                                     break;
+
                                 case "tan":
-                                    firstNumber = Convert.ToDouble(tokens[tokens.Count - 1]);
-                                    res = Math.Tan(firstNumber);
-                                    tokens[tokens.Count - 1] = res.ToString();
+                                    numbers.Push(Math.Tan(firstNumber));
                                     break;
+
                                 case "cot":
-                                    firstNumber = Convert.ToDouble(tokens[tokens.Count - 1]);
-                                    res = 1 / Math.Tan(firstNumber);
-                                    tokens[tokens.Count - 1] = res.ToString();
+                                    numbers.Push(1/Math.Tan(firstNumber));
                                     break;
+
                                 case "asin":
-                                    firstNumber = Convert.ToDouble(tokens[tokens.Count - 1]);
                                     if (firstNumber <= 1 && firstNumber >= -1)
-                                    {
-                                        res = Math.Asin(firstNumber);
-                                        tokens[tokens.Count - 1] = res.ToString();
-                                    }
+                                        numbers.Push(Math.Asin(firstNumber));
                                     else
-                                    {
                                         ErrorNaN = true;
-                                    }
                                     break;
+
                                 case "acos":
-                                    firstNumber = Convert.ToDouble(tokens[tokens.Count - 1]);
                                     if (firstNumber <= 1 && firstNumber >= -1)
-                                    {
-                                        res = Math.Asin(firstNumber);
-                                        tokens[tokens.Count - 1] = res.ToString();
-                                    }
+                                        numbers.Push(Math.Acos(firstNumber));
                                     else
                                         ErrorNaN = true;
                                     break;
+
                                 case "atan":
-                                    firstNumber = Convert.ToDouble(tokens[tokens.Count - 1]);
-                                    res = Math.Atan(firstNumber);
-                                    tokens[tokens.Count - 1] = res.ToString();
+                                    numbers.Push(Math.Atan(firstNumber));
                                     break;
+
                                 case "abs":
-                                    firstNumber = Convert.ToDouble(tokens[tokens.Count - 1]);
-                                    res = Math.Abs(firstNumber);
-                                    tokens[tokens.Count - 1] = res.ToString();
+                                    numbers.Push(Math.Abs(firstNumber));
                                     break;
+
                                 case "sqrt":
-                                    firstNumber = Convert.ToDouble(tokens[tokens.Count - 1]);
                                     if (firstNumber >= 0)
-                                    {
-                                        res = Math.Sqrt(firstNumber);
-                                        tokens[tokens.Count - 1] = res.ToString();
-                                    }
+                                        numbers.Push(Math.Sqrt(firstNumber));
                                     else
                                         ErrorNaN = true;
                                     break;
+
                                 case "exp":
-                                    firstNumber = Convert.ToDouble(tokens[tokens.Count - 1]);
-                                    res = Math.Exp(firstNumber);
-                                    tokens[tokens.Count - 1] = res.ToString();
+                                    numbers.Push(Math.Exp(firstNumber));
                                     break;
+
                                 case "log":
-                                    firstNumber = Convert.ToDouble(tokens[tokens.Count - 1]);
                                     if (firstNumber > 0)
-                                    {
-                                        res = Math.Log10(firstNumber);
-                                        tokens[tokens.Count - 1] = res.ToString();
-                                    }
+                                        numbers.Push(Math.Log10(firstNumber));
                                     else
                                         ErrorNaN = true;
                                     break;
+
                                 case "ln":
-                                    firstNumber = Convert.ToDouble(tokens[tokens.Count - 1]);
                                     if (firstNumber > 0)
-                                    {
-                                        res = Math.Log(firstNumber);
-                                        tokens[tokens.Count - 1] = res.ToString();
-                                    }
+                                        numbers.Push(Math.Log(firstNumber));
                                     else
                                         ErrorNaN = true;
                                     break;
@@ -139,47 +112,28 @@ namespace Integral
                         }
                         else
                         {
-                            switch (result[i])
+                            secondNumber = numbers.Pop();
+                            firstNumber = numbers.Pop();                            
+                            switch (token.Value)
                             {
                                 case "+":
-                                    firstNumber = Convert.ToDouble(tokens[tokens.Count - 2]);
-                                    secondNumber = Convert.ToDouble(tokens[tokens.Count - 1]);
-                                    res = (firstNumber + secondNumber) * 1.0;
-                                    tokens.RemoveAt(tokens.Count - 2);
-                                    tokens.RemoveAt(tokens.Count - 1);
-                                    tokens.Add(res.ToString());
+                                    numbers.Push((firstNumber + secondNumber) * 1.0);
                                     break;
+
                                 case "-":
-                                    firstNumber = Convert.ToDouble(tokens[tokens.Count - 2]);
-                                    secondNumber = Convert.ToDouble(tokens[tokens.Count - 1]);
-                                    res = (firstNumber - secondNumber) * 1.0;
-                                    tokens.RemoveAt(tokens.Count - 2);
-                                    tokens.RemoveAt(tokens.Count - 1);
-                                    tokens.Add(res.ToString());
+                                    numbers.Push((firstNumber - secondNumber) * 1.0);
                                     break;
+
                                 case "/":
-                                    firstNumber = Convert.ToDouble(tokens[tokens.Count - 2]);
-                                    secondNumber = Convert.ToDouble(tokens[tokens.Count - 1]);
-                                    res = firstNumber * 1.0 / secondNumber * 1.0;
-                                    tokens.RemoveAt(tokens.Count - 2);
-                                    tokens.RemoveAt(tokens.Count - 1);
-                                    tokens.Add(res.ToString());
+                                    numbers.Push((firstNumber * 1.0) / (secondNumber * 1.0));
                                     break;
+
                                 case "*":
-                                    firstNumber = Convert.ToDouble(tokens[tokens.Count - 2]);
-                                    secondNumber = Convert.ToDouble(tokens[tokens.Count - 1]);
-                                    res = firstNumber * 1.0 * secondNumber * 1.0;
-                                    tokens.RemoveAt(tokens.Count - 2);
-                                    tokens.RemoveAt(tokens.Count - 1);
-                                    tokens.Add(res.ToString());
+                                    numbers.Push((firstNumber * 1.0) * (secondNumber * 1.0));
                                     break;
+
                                 case "^":
-                                    firstNumber = Convert.ToDouble(tokens[tokens.Count - 2]);
-                                    secondNumber = Convert.ToDouble(tokens[tokens.Count - 1]);
-                                    res = Math.Pow(firstNumber * 1.0, secondNumber * 1.0);
-                                    tokens.RemoveAt(tokens.Count - 2);
-                                    tokens.RemoveAt(tokens.Count - 1);
-                                    tokens.Add(res.ToString());
+                                    numbers.Push(Math.Pow(firstNumber * 1.0, secondNumber * 1.0));
                                     break;
                             }
                         }
@@ -190,281 +144,148 @@ namespace Integral
                     }
                 }
                 if (!ErrorNaN)
-                    return Convert.ToDouble(tokens[0]);
+                    return numbers.Pop();
                 else
                 {
                     return 0;
                 }
             }
-            catch(NaNErrorException)
+            catch (NaNErrorException)
             {
                 throw new NaNErrorException("Недопустипое значение аргумента");
             }
             catch
-            {   
+            {
                 throw new FunctionErrorException("Ошибка в выполнении функции");
             }
 
-       }
+        }
 
-        private void GetPolishRecord(string Formula)
+
+        private int GetPriority(String token)
         {
-            string numberComb;
-            string functComb;
-            bool lastSigh = false;
 
-            tokens.Clear();
-            result.Clear();
-            Formula = Formula.Replace(".", ",");
-            Formula = Formula.Replace("X", "x");
+            switch (token)
+            {
+                case ")": return 4;
+                case "^": return 3;
+                case "*": return 2;
+                case "/": return 2;
+                case "+": return 1;
+                case "-": return 1;
+                case "(": return 0;
+                default: return -1;
+            }
+        }
+        private void GetPolishRecord(string function)
+        {
+
+            int tokenPriority;
+            int tokensCount;
+            string numberCombination;
+            string functionCombination;
+
+            bool negativeNumber = true;
+
+            Stack<string> tokens = new Stack<string>();
+
+            polishRecord.Clear();
+            function = function.Replace(".", ",");
+            function = function.Replace("X", "x");
             try
             {
-
-                for (int i = 0; i < Formula.Length; i++)
+                for (int i = 0; i < function.Length; i++)
                 {
-                    switch (Formula[i].ToString())
+                    tokenPriority = GetPriority(function[i].ToString());
+
+                    if (tokenPriority == 4)
                     {
-                        case "(":
-                            tokens.Add("(");
-                            lastSigh = true;
-                            break;
-                        case ")":
-                            string a = tokens[tokens.Count - 1].ToString();
-                            while (tokens[tokens.Count - 1] != "(")
-                            {
-                                result.Add(tokens[tokens.Count - 1]);
-                                tokens.RemoveAt(tokens.Count - 1);
-                            }
+                        while (tokens.Peek() != "(")
+                            polishRecord.Add(new Token(tokens.Pop(), 0));
+                        tokens.Pop();
 
-                            tokens.RemoveAt(tokens.Count - 1);
-                            if (tokens.Count != 0)
+                        if (tokens.Count != 0)
+                        {
+                            if (Functs.Contains(tokens.Peek()))
+                                polishRecord.Add(new Token(tokens.Pop(), 2));
+                        }
+                    }
+
+                    else if ((tokenPriority < 4 && tokenPriority > 0) && !(negativeNumber && function[i] == '-'))
+                    {
+                        tokensCount = tokens.Count;
+                        if (tokensCount > 0)
+                        {
+                            if (GetPriority(tokens.Peek()) > tokenPriority)
                             {
-                                if (Functs.Contains(tokens[tokens.Count - 1]))
+                                do
                                 {
-                                    result.Add(tokens[tokens.Count - 1]);
-                                    tokens.RemoveAt(tokens.Count - 1);
-                                }
+                                    polishRecord.Add(new Token(tokens.Pop(), 0));
+                                    tokensCount--;
+
+                                    if (tokensCount == 0)
+                                        break;
+
+                                } while (GetPriority(tokens.Peek()) > tokenPriority);
                             }
-                            break;
+                        }
+                        tokens.Push(function[i].ToString());
+                        negativeNumber = true;
+                    }
 
-                        case "*":
-                            if (tokens.Count == 0)
+                    else if (tokenPriority == 0)
+                    {
+                        tokens.Push(function[i].ToString());
+                        negativeNumber = true;
+                    }
+
+                    else
+                    {
+                        if (numbers_values.Contains(function[i].ToString()) || (negativeNumber && function[i] == '-'))
+                        {
+                            numberCombination = String.Empty;
+                            do
                             {
-                                tokens.Add("*");
-                                lastSigh = true;
-                            }
-                            else
-                            {
-
-                                if (MulDiv.Contains(tokens[tokens.Count - 1]) || tokens[tokens.Count - 1] == "^")
-                                {
-                                    do
-                                    {
-                                        result.Add(tokens[tokens.Count - 1]);
-                                        tokens.RemoveAt(tokens.Count - 1);
-                                        if (tokens.Count == 0)
-                                            break;
-
-                                    } while ((MulDiv.Contains(tokens[tokens.Count - 1]) || tokens[tokens.Count - 1] == "^"));
-
-                                    tokens.Add("*");
-                                    lastSigh = true;
-                                }
-                                else
-                                {
-                                    tokens.Add("*");
-                                    lastSigh = true;
-                                }
-                            }
-                            break;
-
-                        case "/":
-                            if (tokens.Count == 0)
-                            {
-                                tokens.Add("/");
-                                lastSigh = true;
-                            }
-                            else
-                            {
-                                if (MulDiv.Contains(tokens[tokens.Count - 1]) || tokens[tokens.Count - 1] == "^")
-                                {
-                                    do
-                                    {
-                                        result.Add(tokens[tokens.Count - 1]);
-                                        tokens.RemoveAt(tokens.Count - 1);
-                                        if (tokens.Count == 0)
-                                            break;
-
-                                    } while ((MulDiv.Contains(tokens[tokens.Count - 1]) || tokens[tokens.Count - 1] == "^"));
-
-                                    tokens.Add("/");
-                                    lastSigh = true;
-                                }
-                                else
-                                {
-                                    tokens.Add("/");
-                                    lastSigh = true;
-                                }
-                            }
-                            break;
-
-                        case "+":
-                            if (tokens.Count == 0)
-                            {
-                                tokens.Add("+");
-                                lastSigh = true;
-                            }
-                            else
-                            {
-                                if (MulDiv.Contains(tokens[tokens.Count - 1]) || AddSub.Contains(tokens[tokens.Count - 1]) || tokens[tokens.Count - 1] == "^")
-                                {
-                                    do
-                                    {
-                                        result.Add(tokens[tokens.Count - 1]);
-                                        tokens.RemoveAt(tokens.Count - 1);
-                                        if (tokens.Count == 0)
-                                            break;
-
-                                    } while ((MulDiv.Contains(tokens[tokens.Count - 1]) || AddSub.Contains(tokens[tokens.Count - 1]) || tokens[tokens.Count - 1] == "^"));
-                                    tokens.Add("+");
-                                    lastSigh = true;
-                                }
-                                else
-                                {
-                                    tokens.Add("+");
-                                    lastSigh = true;
-                                }
-
-                            }
-                            break;
-
-                        case "-":
-                            if (i == 0)
-                            {
-                                numberComb = null;
-                                numberComb += "-";
+                                numberCombination += function[i].ToString();
                                 i++;
-                                do
-                                {
-                                    numberComb += Formula[i].ToString();
-                                    i++;
-                                    if (i == Formula.Length)
-                                        break;
+                                if (i == function.Length)
+                                    break;
 
-
-                                }
-                                while (number.Contains(Formula[i].ToString()));
-                                i--;
-                                result.Add(numberComb);
-                                lastSigh = false;
                             }
-                            else
+                            while (numbers_values.Contains(function[i].ToString()));
+                            i--;
+                            polishRecord.Add(new Token(numberCombination, 1));
+                            negativeNumber = false;
+                        }
+                        else
+                        {
+                            functionCombination = String.Empty;
+                            do
                             {
-                                if (lastSigh)
-                                {
-                                    numberComb = null;
-                                    numberComb += "-";
-                                    i++;
-                                    do
-                                    {
-                                        numberComb += Formula[i].ToString();
-                                        i++;
-                                        if (i == Formula.Length)
-                                            break;
-
-                                    }
-                                    while (number.Contains(Formula[i].ToString()));
-                                    i--;
-                                    result.Add(numberComb);
-                                    lastSigh = false;
-                                }
-                                else
-                                {
-                                    if (tokens.Count == 0)
-                                    {
-                                        tokens.Add("-");
-                                        lastSigh = true;
-                                    }
-                                    else
-                                    {
-                                        if (MulDiv.Contains(tokens[tokens.Count - 1]) || AddSub.Contains(tokens[tokens.Count - 1]) || tokens[tokens.Count - 1] == "^")
-                                        {
-                                            do
-                                            {
-                                                result.Add(tokens[tokens.Count - 1]);
-                                                tokens.RemoveAt(tokens.Count - 1);
-                                                if (tokens.Count == 0)
-                                                    break;
-
-                                            } while ((MulDiv.Contains(tokens[tokens.Count - 1]) || AddSub.Contains(tokens[tokens.Count - 1]) || tokens[tokens.Count - 1] == "^"));
-                                            tokens.Add("-");
-                                            lastSigh = true;
-                                        }
-                                        else
-                                        {
-                                            tokens.Add("-");
-                                            lastSigh = true;
-                                        }
-                                    }
-                                }
+                                functionCombination += function[i].ToString();
+                                i++;
+                                if (i == function.Length)
+                                    break;
                             }
-                            break;
-                        case "^":
-                            if (tokens.Count == 0)
-                            {
-                                tokens.Add("^");
-                                lastSigh = true;
-                            }
-                            else
-                            {
-                                tokens.Add("^");
-                                lastSigh = true;
-                            }
-                            break;
-                        default:
-                            if (number.Contains(Formula[i].ToString()))
-                            {
-                                numberComb = null;
-                                do
-                                {
-                                    numberComb += Formula[i].ToString();
-                                    i++;
-                                    if (i == Formula.Length)
-                                        break;
-
-
-                                }
-                                while (number.Contains(Formula[i].ToString()));
-                                i--;
-                                result.Add(numberComb);
-                                lastSigh = false;
-                            }
-                            else
-                            {
-                                functComb = null;
-                                do
-                                {
-                                    functComb += Formula[i].ToString();
-                                    i++;
-                                    if (i == Formula.Length)
-                                        break;
-                                }
-                                while (!number.Contains(Formula[i].ToString()) && Formula[i].ToString() != "(");
-                                i--;
-                                tokens.Add(functComb);
-                            }
-                            break;
+                            while (!numbers_values.Contains(function[i].ToString()) && function[i].ToString() != "(");
+                            i--;
+                            tokens.Push(functionCombination);
+                        }
                     }
                 }
-                for (int i = tokens.Count - 1; i >= 0; i--)
-                    result.Add(tokens[i]);
+                while (tokens.Count != 0)
+                    polishRecord.Add(new Token(tokens.Pop(), 0));
             }
             catch
             {
                 throw new SyntaxErrorException("Синтаксическая ошибка");
             }
         }
+
+
     }
+
+
 
     public class SyntaxErrorException : Exception
     {

@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -15,10 +7,10 @@ namespace Integral
 {
     class Integral
     {
-        Parser parser; //Объект типо парсера
-       
+        Parser parser; 
+
         readonly Form form;
-       
+
         const double dx = 0.0000001;
         public Integral(string function, Form form)
         {
@@ -27,71 +19,71 @@ namespace Integral
         }
 
         private bool FindGap(double a, double b, string Formula)
-        {                            
-                int scobCount = 0;
-                int scobStartIndex;
-                int scobEndIndex = 0;
-                string checkFormula = null;
-                double ResA;
-                double ResB;          
-                while (Formula.Contains("/"))
+        {
+            int scobCount = 0;
+            int scobStartIndex;
+            int scobEndIndex = 0;
+            string checkFormula = null;
+            double ResA;
+            double ResB;
+            while (Formula.Contains("/"))
+            {
+                for (int i = 0; i < Formula.Length; i++)
                 {
-                    for (int i = 0; i < Formula.Length; i++)
+                    if (Formula[i] == '/')
                     {
-                        if (Formula[i] == '/')
+                        i++;
+                        if (Formula[i] == '(')
                         {
-                            i++;
-                            if (Formula[i] == '(')
+                            scobStartIndex = i;
+                            scobCount++;
+                            while (scobCount != 0)
                             {
-                                scobStartIndex = i;
-                                scobCount++;
-                                while (scobCount != 0)
+                                i++;
+                                if (Formula[i] == '(')
                                 {
-                                    i++;
-                                    if (Formula[i] == '(')
-                                    {
-                                        scobCount++;
-                                    }
-                                    if (Formula[i] == ')')
-                                    {
-                                        scobCount--;
-                                        scobEndIndex = i;
-                                    }
+                                    scobCount++;
                                 }
-                                checkFormula = Formula.Substring(scobStartIndex + 1, scobEndIndex - scobStartIndex - 1);
-                                Formula = Formula.Substring(scobStartIndex);
-                                ResA = parser.f(a);
-                                ResB = parser.f(b);
-                                if (ResA * ResB <= 0)
-                                    return true;
-                                else
-                                    break;
+                                if (Formula[i] == ')')
+                                {
+                                    scobCount--;
+                                    scobEndIndex = i;
+                                }
                             }
+                            checkFormula = Formula.Substring(scobStartIndex + 1, scobEndIndex - scobStartIndex - 1);
+                            Formula = Formula.Substring(scobStartIndex);
+                            ResA = parser.f(a);
+                            ResB = parser.f(b);
+                            if (ResA * ResB <= 0)
+                                return true;
                             else
+                                break;
+                        }
+                        else
+                        {
+                            if (Formula[i] == 'x')
                             {
-                                if (Formula[i] == 'x')
-                                {
-                                    if (a * b <= 0)
-                                        return true;
-                                    else
-                                    {
-                                        Formula = Formula.Substring(i);
-                                        break;
-                                    }
-
-                                }
+                                if (a * b <= 0)
+                                    return true;
                                 else
                                 {
                                     Formula = Formula.Substring(i);
                                     break;
                                 }
+
+                            }
+                            else
+                            {
+                                Formula = Formula.Substring(i);
+                                break;
                             }
                         }
-                        else
-                            continue;
                     }
+                    else
+                        continue;
                 }
-                return false; 
+            }
+            return false;
         }
 
         private double DifferFirst(double x)
@@ -125,7 +117,7 @@ namespace Integral
         }
 
 
-       
+
 
 
         private int GetLeftRightPartCount(double a, double b, double eps)
@@ -191,18 +183,18 @@ namespace Integral
             double step;
             int parts;
             Action action;
-            if (FindGap(aborder, bborder, parser.function))
+            if (FindGap(aborder, bborder, parser.Equation))
                 throw new Exception("Имеется разрыв второго рода");
             else
             {
 
                 parts = GetLeftRightPartCount(aborder, bborder, epsilon);
                 step = (bborder - aborder) * 1.0 / parts;
-                action =()=>progressBar.Maximum = parts;
+                action = () => progressBar.Maximum = parts;
                 form.Invoke(action);
                 action = () => progressBar.Value++;
                 result = 0.0;
-               
+
                 for (double i = 1; i < parts; i++)
                 {
                     if (!backgroundWorker.CancellationPending)
@@ -214,7 +206,7 @@ namespace Integral
                         return 0;
 
                 }
-                return result*step;
+                return result * step;
             }
         }
         public double RightMethod(double aborder, double bborder, double epsilon, ProgressBar progressBar, BackgroundWorker backgroundWorker)
@@ -223,7 +215,7 @@ namespace Integral
             double step;
             int parts;
             Action action;
-            if (FindGap(aborder, bborder, parser.function))
+            if (FindGap(aborder, bborder, parser.Equation))
                 throw new Exception("Имеется разрыв второго рода");
             else
             {
@@ -254,7 +246,7 @@ namespace Integral
             double step;
             int parts;
             Action action;
-            if (FindGap(aborder, bborder, parser.function))
+            if (FindGap(aborder, bborder, parser.Equation))
                 throw new Exception("Имеется разрыв второго рода");
             else
             {
@@ -288,7 +280,7 @@ namespace Integral
             double step;
             int parts;
             Action action;
-            if (FindGap(aborder, bborder, parser.function))
+            if (FindGap(aborder, bborder, parser.Equation))
                 throw new Exception("Имеется разрыв второго рода");
             else
             {
@@ -324,7 +316,7 @@ namespace Integral
             double step;
             int parts;
             Action action;
-            if (FindGap(aborder, bborder, parser.function))
+            if (FindGap(aborder, bborder, parser.Equation))
                 throw new Exception("Имеется разрыв второго рода");
             else
             {
